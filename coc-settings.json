@@ -1,0 +1,46 @@
+{
+    "suggest.noselect": false,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "javascriptreact",
+        "typescript.tsx",
+        "javascript.jsx",
+        "json"
+    ],
+    "languageserver": {
+        "intelephense": {
+            "command": "intelephense",
+            "args": [
+                "--stdio"
+            ],
+            "filetypes": [
+                "php"
+            ],
+            "initializationOptions": {
+                "storagePath": "/tmp/intelephense"
+            }
+        }
+    },
+    "tsserver.enable": true,
+    "tsserver.trace.server": "messages",
+    "tsserver.enableJavascript": true,
+    "tsserver.typingsCacheLocation": "/tsserver/cache",
+    "tsserver.enableTracing": true,
+    "typescript.format.enabled": true,
+    "typescript.autoClosingTags": true,
+    "javascript.format.enabled": true,
+    "javascript.autoClosingTags": true,
+    "html.enable": true,
+    "html.format.enable": true,
+    "html.suggest.html5": true,
+    "html.trace.server": "messages",
+    "html.autoClosingTags": true,
+    "html.filetypes": [
+        "html",
+        "handlebars",
+        "htmldjango",
+        "blade"
+    ]
+}
