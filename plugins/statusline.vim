@@ -31,9 +31,9 @@ endfunction
 
 function! SetModifiedSymbol(modified) " {{{
     if a:modified == 1
-        hi MyStatuslineModifiedBody guifg=#d79921 guibg=#1A1E2D
+      hi MyStatuslineModifiedBody guifg=#d79921 guibg=#1A1E2D
     else
-        hi MyStatuslineModifiedBody guifg=#928374 guibg=#1A1E2D
+      hi MyStatuslineModifiedBody guifg=#928374 guibg=#1A1E2D
     endif
     return '●'
 endfunction
@@ -41,9 +41,9 @@ endfunction
 
 function! SetFiletype(filetype) " {{{
   if a:filetype == ''
-      return '-'
+    return '-'
   else
-      return a:filetype
+    return a:filetype
   endif
 endfunction
 " }}}
@@ -66,8 +66,8 @@ endfunction
 
 " function! WordCount() " {{{
 "   let s:old_status = v:statusmsg
-"   let position = getpos(".")
-"   exe ":silent normal g\<c-g>"
+"   let position = getpos('.')
+"   exe ':silent normal g\<c-g>'
 "   let stat = v:statusmsg
 "   let s:word_count = 0
 "   if stat != '--No lines in buffer--'
