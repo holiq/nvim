@@ -5,7 +5,7 @@ math.randomseed(os.time())
 
 local plugins = ""
 if vim.fn.has("linux") == 1 or vim.fn.has("mac") == 1 then
-  local handle = io.popen('fd -d 1 . $HOME"/.local/share/nvim/plugged" | wc -l | tr -d "\n" ')
+  local handle = io.popen('fd -d 1 . $HOME"/.local/share/nvim/plugged" | wc -l | tr -d "\\n" ')
   if handle == nil then
     return nil
   end
@@ -32,21 +32,25 @@ local function footer()
 end
 
 local header = {
-  "                                                     ",
-  "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-  "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-  "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-  "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-  "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-  "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-  "                                                     ",
+  "   ",
+  "   /\\\\\\        /\\\\\\                /\\\\\\                               ",
+  "   \\/\\\\\\       \\/\\\\\\               \\/\\\\\\                              ",
+  "    \\/\\\\\\       \\/\\\\\\               \\/\\\\\\                             ",
+  "     \\/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\     /\\\\\\\\\\    \\/\\\\\\             /\\\\\\\\\\         ",
+  "      \\/\\\\\\/////////\\\\\\   /\\\\\\///\\\\\\  \\/\\\\\\\\\\\\\\\\\\\\    /\\\\\\///\\\\\\      ",
+  "       \\/\\\\\\       \\/\\\\\\  /\\\\\\  \\//\\\\\\ \\/\\\\\\/////\\\\\\  /\\\\\\  \\//\\\\\\    ",
+  "        \\/\\\\\\       \\/\\\\\\ \\//\\\\\\  /\\\\\\  \\/\\\\\\   \\/\\\\\\ \\//\\\\\\  /\\\\\\    ",
+  "         \\/\\\\\\       \\/\\\\\\  \\///\\\\\\\\\\/   \\/\\\\\\   \\/\\\\\\  \\///\\\\\\\\\\/    ",
+  "          \\///        \\///     \\/////     \\///    \\///     \\/////     ",
+  "   ",
 }
 
 -- Set menu
 local button = {
   dashboard.button("r", "  Recent File", ":Telescope oldfiles<CR>"),
+  dashboard.button("p", "  Project", ":Telescope project<CR>"),
   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-  dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
+  dashboard.button("f", "  Find file", ":Telescope find_files hidden=true<CR>"),
   dashboard.button("l", "  Bookmark", ":Telescope marks<CR>"),
   dashboard.button("u", "  Update Plugin", ":PlugUpdate | :CocUpdate<CR>"),
   dashboard.button("s", "  Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),

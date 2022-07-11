@@ -22,6 +22,10 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'goolord/alpha-nvim'
 "Plug 'startup-nvim/startup.nvim'
 
+Plug 'git@github.com:nvim-telescope/telescope-project.nvim.git'
+Plug 'petertriho/nvim-scrollbar'
+Plug 'karb94/neoscroll.nvim'
+
 Plug 'nvim-treesitter/nvim-treesitter'
 "Plug 'SmiteshP/nvim-gps'
 "Plug 'phpactor/phpactor'
@@ -52,6 +56,9 @@ let g:gitgutter_highlight_linenrs=1
 let g:delimitMate_expand_cr=2
 let g:delimitMate_expand_space=1
 
+let g:loaded_node_provider=0
+let g:loaded_python3_provider=0
+
 syntax on
 colorscheme tokyonight
 filetype plugin indent on
@@ -65,6 +72,8 @@ set cursorline
 set noswapfile
 set hlsearch
 set incsearch
+set showcmd
+set nomodeline
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -111,12 +120,15 @@ highlight TelescopePromptPrefix   guifg=#5af78e
 
 nnoremap <C-Left>  :bp<CR>
 nnoremap <C-Right> :bn<CR>
-
 nnoremap <C-t> :tabnew .<CR>
 nnoremap <C-c> :tabclose!<CR>
-nnoremap <C-b> :vi .<CR>
 nnoremap <C-x> :bdelete!<CR>
-nnoremap <C-d> :NvimTreeToggle<CR>
+nnoremap tr :NvimTreeToggle<CR>
+nnoremap ff :Telescope find_files<CR>
+nnoremap fg :Telescope live_grep<CR>
+nnoremap fb :Telescope buffers<CR>
+nnoremap fh :Telescope help_tags<CR>
+nnoremap qq :q<CR>
 
 source ~/.config/nvim/plugins/statusline.vim
 source ~/.config/nvim/plugins/tabline.vim
@@ -126,4 +138,6 @@ source ~/.config/nvim/plugins/tree.lua
 source ~/.config/nvim/plugins/alpha.lua
 "source ~/.config/nvim/plugins/startup.lua
 source ~/.config/nvim/plugins/telescope.lua
+source ~/.config/nvim/plugins/scrollbar.lua
+source ~/.config/nvim/plugins/neoscroll.lua
 
